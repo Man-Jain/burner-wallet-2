@@ -7,7 +7,7 @@ import { BurnerConnectBridge } from '@burner-wallet/burner-connect-wallet';
 const core = new BurnerCore({
   signers: [new LocalSigner()],
   gateways: [
-    new InfuraGateway(process.env.REACT_APP_INFURA_KEY!),
+    new InfuraGateway('67531e96ca3842cdabf3147f5d2a3742'),
     new XDaiGateway(),
   ],
   assets: [xdai, dai, eth],
