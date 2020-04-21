@@ -1,7 +1,7 @@
 {
-  "name": "hello-snaps",
+  "name": "burnet-snap",
   "version": "1.0.0",
-  "description": "Hello plugins!",
+  "description": "Snap to add Burner Wallet to Metamask",
   "main": "index.js",
   "dependencies": {
     "@burner-wallet/core": "^1.1.9",
@@ -11,7 +11,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Manank Patni <manank321@gmail.com>",
   "license": "ISC",
   "repository": {
     "type": "git",
