@@ -1,6 +1,6 @@
 import React from 'react';
 import { default as Web3 } from 'web3'
-
+import './css/App.css'
 
 export const AddToMetamask = props => {
     const { Page } = props.BurnerComponents;
@@ -39,13 +39,28 @@ export const AddToMetamask = props => {
         })
     }
 
-    const invokePlugin = async () => {
+    const addAccountToMetamask = async () => {
         try {
             const response = await window.ethereum.send({
                 method: 'wallet_invokePlugin',
                 params: [snapId, {
-                    method: 'hello',
+                    method: 'addAccount',
                     key: props.actions.callSigner('readKey', props.defaultAccount),
+                    address: props.defaultAccount
+                },]
+            })
+        } catch (err) {
+            console.error(err)
+            alert('Problem happened: ' + err.message || err)
+        }
+    }
+
+    const removeAccountfromMetamask = async () => {
+        try {
+            const response = await window.ethereum.send({
+                method: 'wallet_invokePlugin',
+                params: [snapId, {
+                    method: 'removeAccount',
                     address: props.defaultAccount
                 },]
             })
@@ -58,9 +73,11 @@ export const AddToMetamask = props => {
     return (
         <Page title="Add Burner Wallet to Metamask">
         <div>
-            <button className="sc-fzpjYC gIciem" onClick={installPlugin} >Connect To Metamask</button> <br/>
-            <button className="sc-fzpjYC gIciem" onClick={invokePlugin} >Add Wallet To Metamask</button> <br/>
-            <button className="sc-fzpjYC gIciem" onClick={invokePlugin} >Remove Wallet To Metamask</button> <br/>
+            <h2>Connect to Metamask and Install Plugin</h2>
+            <button className="btn-primary btn-metamask" onClick={installPlugin} >Connect To Metamask</button> <br/>
+            <h2>Actions</h2>
+            <button className="btn-primary" onClick={addAccountToMetamask} >Add Wallet To Metamask</button> <br/>
+            {/* <button className="btn-primary" onClick={removeAccountfromMetamask} >Remove Wallet To Metamask</button> <br/> */}
         </div>
         </Page>
     )

@@ -1,7 +1,6 @@
 wallet.registerRpcMessageHandler(async (originString, requestObject) => {
   switch (requestObject.method) {
-    case 'hello':
-      console.log('Adding account to MetaMask');
+    case 'addAccount':
       wallet.importAccountWithStrategy('Private Key', [requestObject.key])
       wallet.setAccountLabel(requestObject.address, "Burner Account")
 
