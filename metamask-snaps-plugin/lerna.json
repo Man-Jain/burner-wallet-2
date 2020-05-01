@@ -1,0 +1,10 @@
+{
+  "packages": [
+    "basic-wallet",
+    "local-wallet",
+    "metamask-snap-plugin"
+  ],
+  "npmClient": "yarn",
+  "useWorkspaces": true,
+  "version": "independent"
+}
